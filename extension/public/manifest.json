@@ -1,0 +1,19 @@
+{
+    "name": "Organize-O-Save",
+    "version": "1.0.0",
+    "description": "Organize saved social media posts",
+    "action": {
+        "default_popup": "index.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*.instagram.com/*"
+            ],
+            "js": [
+                "./assets/instagramContentScript.js"
+            ]
+        }
+    ],
+    "manifest_version": 3
+}
