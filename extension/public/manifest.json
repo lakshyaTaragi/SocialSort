@@ -20,7 +20,7 @@
                 "*://*.instagram.com/*"
             ],
             "js": [
-                "./assets/InstagramContentScript.js"
+                "./assets/instagramContentScript.js"
             ]
         },
         {

@@ -4,6 +4,7 @@ export const addInstagramSaveUnsaveListener = () => {
             let action: string | undefined = deterMineAction(details)
             let postLink: string | undefined = details.requestHeaders?.find(el => el.name === "Referer")?.value
             if (action && postLink) {
+                
                 console.log(`to ${action} post: ${postLink}`)
             }
         },

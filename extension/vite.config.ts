@@ -7,7 +7,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        'InstagramContentScript': './src/contentScripts/InstagramContentScript.tsx',
+        'instagramContentScript': './src/contentScripts/instagramContentScript.ts',
         'RedditContentScript': './src/contentScripts/RedditContentScript.tsx',
         'YoutubeContentScript': './src/contentScripts/YoutubeContentScript.tsx',
         'youtubeServiceWorker': './src/serviceWorkers/youtubeServiceWorker.ts',
