@@ -16,7 +16,10 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.get("/hi", (req: Request, res: Response) => {
-    res.json({ message: "hiiiiii" });
+    res.json({
+        message: "hiiiiii",
+        code: 123
+    });
 });
 
 app.listen(port, () => {

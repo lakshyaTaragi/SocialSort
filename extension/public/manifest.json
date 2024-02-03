@@ -5,15 +5,30 @@
     "action": {
         "default_popup": "index.html"
     },
+    "permissions": [
+        "tabs",
+        "webNavigation"
+    ],
     "content_scripts": [
         {
             "matches": [
-                "https://*.instagram.com/*"
+                "*://*.instagram.com/*"
             ],
             "js": [
-                "./assets/instagramContentScript.js"
+                "./assets/InstagramContentScript.js"
+            ]
+        },
+        {
+            "matches": [
+                "*://*.reddit.com/*"
+            ],
+            "js": [
+                "./assets/RedditContentScript.js"
             ]
         }
     ],
+    "background": {
+        "service_worker": "./assets/youtubeServiceWorker.js"
+    },
     "manifest_version": 3
 }
