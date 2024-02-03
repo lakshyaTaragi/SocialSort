@@ -1,5 +1,5 @@
-import { addInstagramSaveUnsaveListener } from './instagramServiceWorker'
-import { addYoutubeLoadCompletionListener } from './youtubeServiceWorker'
+import { addInstagramActionListener } from './instagramServiceWorker'
+import { addYoutubeActionListener } from './youtubeServiceWorker'
 
-addInstagramSaveUnsaveListener()
-addYoutubeLoadCompletionListener()
+addInstagramActionListener()
+addYoutubeActionListener()

@@ -1,4 +1,3 @@
-// const express = require('express');
 import express, { Express, Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
@@ -21,6 +20,14 @@ app.get("/hi", (req: Request, res: Response) => {
         code: 123
     });
 });
+
+app.post("/action/", (req: Request, res: Response) => {
+    console.log("received action request: ", req.body)
+    res.json({
+        success: true,
+        message: "Action data received successfully"
+    })
+})
 
 app.listen(port, () => {
     console.log(`listening on port ${port}`);

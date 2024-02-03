@@ -12,6 +12,7 @@ export default defineConfig({
         'YoutubeContentScript': './src/contentScripts/YoutubeContentScript.tsx',
         'youtubeServiceWorker': './src/serviceWorkers/youtubeServiceWorker.ts',
         'instagramServiceWorker': './src/serviceWorkers/instagramServiceWorker.ts',
+        'apiRoutes': './src/serviceWorkers/apiRoutes.ts',
         'background': './src/serviceWorkers/background.ts',
         'index': 'index.html',
       },

@@ -12,7 +12,8 @@
     ],
     "host_permissions": [
         "*://*.instagram.com/api/graphql/*",
-        "*://*.instagram.com/api/v1/web/save/*"
+        "*://*.instagram.com/api/v1/web/save/*",
+        "*://*.youtube.com/youtubei/v1/browse/edit_playlist?key=*"
     ],
     "content_scripts": [
         {
