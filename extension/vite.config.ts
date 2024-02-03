@@ -7,7 +7,8 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        'instagramContentScript': './src/contentScripts/instagramContentScript.ts',
+        'InstagramContentScript': './src/contentScripts/InstagramContentScript.tsx',
+        'instagramServiceWorker': './src/serviceWorkers/instagramServiceWorker.ts',
         'index': 'index.html',
       },
       output: {
