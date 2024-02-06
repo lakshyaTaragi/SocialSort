@@ -11,9 +11,9 @@
         "webNavigation"
     ],
     "host_permissions": [
-        "*://*.instagram.com/api/graphql/*",
-        "*://*.instagram.com/api/v1/web/save/*",
-        "*://*.youtube.com/youtubei/v1/browse/edit_playlist?key=*"
+        "*://*.youtube.com/youtubei/v1/browse/edit_playlist?key=*",
+        "*://*.reddit.com/api/save?redditWebClient=*",
+        "*://*.reddit.com/api/unsave?redditWebClient=*"
     ],
     "content_scripts": [
         {
@@ -22,22 +22,6 @@
             ],
             "js": [
                 "./assets/instagramContentScript.js"
-            ]
-        },
-        {
-            "matches": [
-                "*://*.reddit.com/*"
-            ],
-            "js": [
-                "./assets/RedditContentScript.js"
-            ]
-        },
-        {
-            "matches": [
-                "*://*.youtube.com/*"
-            ],
-            "js": [
-                "./assets/YoutubeContentScript.js"
             ]
         }
     ],

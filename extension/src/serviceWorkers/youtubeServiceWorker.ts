@@ -25,7 +25,10 @@ export const addYoutubeActionListener = () => {
                 "*://*.youtube.com/youtubei/v1/browse/edit_playlist?key=*"
             ]
         },
-        ["extraHeaders", "requestBody"]
+        [
+            "extraHeaders",
+            "requestBody"
+        ]
     )
 }
 

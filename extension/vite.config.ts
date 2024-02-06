@@ -8,10 +8,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         'instagramContentScript': './src/contentScripts/instagramContentScript.ts',
-        'RedditContentScript': './src/contentScripts/RedditContentScript.tsx',
-        'YoutubeContentScript': './src/contentScripts/YoutubeContentScript.tsx',
-        'youtubeServiceWorker': './src/serviceWorkers/youtubeServiceWorker.ts',
         'instagramServiceWorker': './src/serviceWorkers/instagramServiceWorker.ts',
+        'youtubeServiceWorker': './src/serviceWorkers/youtubeServiceWorker.ts',
+        'redditServiceWorker': './src/serviceWorkers/redditServiceWorker.ts',
         'apiRoutes': './src/serviceWorkers/apiRoutes.ts',
         'background': './src/serviceWorkers/background.ts',
         'index': 'index.html',
