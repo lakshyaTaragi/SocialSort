@@ -1,7 +1,7 @@
 {
-    "name": "Organize-O-Save",
+    "name": "SocialSort",
     "version": "1.0.0",
-    "description": "Organize saved social media posts",
+    "description": "Sort and organize saved social media posts",
     "action": {
         "default_popup": "index.html"
     },

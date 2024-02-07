@@ -3,9 +3,8 @@ interface ApiResponse {
     success: boolean
 }
 
-export const sendAction = (type: string, action: string, postLink: string) => {
+export const sendAction = (data: any) => {
     const apiURL = "http://localhost:8000/action/"
-    const data = { type, action, postLink }
     const reqOptions: RequestInit = {
         method: "POST",
         headers: {

@@ -18,7 +18,7 @@ export const addYoutubeActionListener = () => {
             }
             let postLink: string = `https://youtube.com/watch?v=${requestBody["actions"][0][postLinkKey]}`
             console.log(`to ${action} post: ${postLink}`)
-            sendAction(YOUTUBE_ACTION_MESSAGE, action, postLink)
+            sendAction({YOUTUBE_ACTION_MESSAGE, action, postLink})
         },
         {
             urls: [

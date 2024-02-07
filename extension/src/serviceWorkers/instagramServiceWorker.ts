@@ -8,7 +8,7 @@ export const addInstagramActionListener = () => {
         if (messageType === INSTAGRAM_ACTION_MESSAGE) {
             const { action, postLink } = message
             console.log(`to ${action} post: ${postLink}`)
-            sendAction(messageType, action, postLink)
+            sendAction({messageType, action, postLink})
         }
     })
 }
