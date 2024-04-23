@@ -32,7 +32,7 @@ export const addYoutubeActionListener = () => {
     )
 }
 
-const getActionRequestBody = (details: chrome.webRequest.WebRequestBodyDetails) => {
+export const getActionRequestBody = (details: chrome.webRequest.WebRequestBodyDetails) => {
     if (details.requestBody && details.requestBody.raw) {
         const data = details.requestBody.raw
             .filter(item => item.bytes)

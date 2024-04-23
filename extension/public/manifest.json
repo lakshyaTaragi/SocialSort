@@ -12,8 +12,7 @@
     ],
     "host_permissions": [
         "*://*.youtube.com/youtubei/v1/browse/edit_playlist?key=*",
-        "*://*.reddit.com/api/save?redditWebClient=*",
-        "*://*.reddit.com/api/unsave?redditWebClient=*"
+        "*://*.reddit.com/svc/shreddit/graphql"
     ],
     "content_scripts": [
         {
