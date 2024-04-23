@@ -20,6 +20,6 @@ export const sendAction = (data: any) => {
             return res.json()
         })
         .then((data: ApiResponse) => {
-            console.log(`From YT service worker: ${JSON.stringify(data)}`)
+            console.log(`From backend server: ${JSON.stringify(data)}`)
         })
 }

@@ -5,9 +5,8 @@ let action: string | undefined = undefined
 let postLink: string | undefined = undefined
 let currentElement: HTMLElement | null = null
 
-// export const INSTAGRAM_ACTION_MESSAGE: string = "INSTAGRAM_ACTION_MESSAGE"
 const INSTAGRAM_ACTION_MESSAGE: string = "INSTAGRAM_ACTION_MESSAGE"
-
+const GET_URL_MESSAGE: string = "GET_URL_MESSAGE"
 const postIdRegex: RegExp = /\/(p|reel(s)?)\/(.*?)\//
 
 const isSpecialSVG = (element: HTMLElement | null): string | undefined => {
@@ -22,15 +21,13 @@ const isSpecialSVG = (element: HTMLElement | null): string | undefined => {
                 default:
                     return undefined
             }
-        }
-        
+        } 
     }
     return undefined
 }
 
 
-const clickListener = (e: Event) => {
-    e.preventDefault()
+const clickListener = async (e: Event) => {
     action = undefined
     postLink = undefined
     currentElement = null
@@ -64,6 +61,11 @@ const clickListener = (e: Event) => {
             const matches = postIdRegex.exec(currentElement.innerHTML)
             if (matches && matches[0]) {
                 postLink = `https://instagram.com${matches[0]}`
+                if (matches[1].includes("reel")) {
+                    postLink = await chrome.runtime.sendMessage({
+                        messageType: GET_URL_MESSAGE
+                    })
+                }
                 break
             }
             else {
