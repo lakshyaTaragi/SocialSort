@@ -11,7 +11,7 @@
         "webNavigation"
     ],
     "host_permissions": [
-        "*://*.youtube.com/youtubei/v1/browse/edit_playlist?key=*",
+        "*://*.youtube.com/youtubei/v1/browse/edit_playlist*",
         "*://*.reddit.com/svc/shreddit/graphql"
     ],
     "content_scripts": [
