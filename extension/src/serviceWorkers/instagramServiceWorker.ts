@@ -1,3 +1,4 @@
+import * as cheerio from 'cheerio'
 import { sendAction } from './apiRoutes'
 
 const INSTAGRAM_ACTION_MESSAGE: string = "INSTAGRAM_ACTION_MESSAGE"
@@ -9,6 +10,7 @@ export const addInstagramActionListener = () => {
         if (messageType === INSTAGRAM_ACTION_MESSAGE) {
             const { action, postLink } = message
             console.log(`to ${action} post: ${postLink}`)
+            getInstagramCreatorFromPostLink(postLink)
             sendAction({ messageType, action, postLink })
         }
         else if (messageType === GET_URL_MESSAGE) {
@@ -24,4 +26,15 @@ export const addInstagramActionListener = () => {
             return true
         }
     })
+}
+
+const getInstagramCreatorFromPostLink = async (postLink: string) => {
+    const response = await fetch(postLink)
+    const bodyText = await response.text()
+    const $ = cheerio.load(bodyText)
+    const description =$('meta[name="description"]').attr('content')
+    const creatorName = description?.split(" on ")[0].split(" - ")[1]
+    const creatorLink = `https://instagram.com/${creatorName}`
+    console.log("*** creatorName = " + creatorName)
+    console.log("*** creatorLink = " + creatorLink)
 }

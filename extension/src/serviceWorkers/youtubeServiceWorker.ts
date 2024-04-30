@@ -1,3 +1,4 @@
+import * as cheerio from 'cheerio'
 import { sendAction } from './apiRoutes'
 
 export const YOUTUBE_ACTION_MESSAGE: string = "YOUTUBE_ACTION_MESSAGE"
@@ -18,7 +19,8 @@ export const addYoutubeActionListener = () => {
             }
             let postLink: string = `https://youtube.com/watch?v=${requestBody["actions"][0][postLinkKey]}`
             console.log(`to ${action} post: ${postLink}`)
-            sendAction({YOUTUBE_ACTION_MESSAGE, action, postLink})
+            getYoutubeCreatorFromPostLink(postLink)
+            sendAction({ YOUTUBE_ACTION_MESSAGE, action, postLink })
         },
         {
             urls: [
@@ -42,4 +44,14 @@ export const getActionRequestBody = (details: chrome.webRequest.WebRequestBodyDe
         return requestBody
     }
     return undefined
+}
+
+const getYoutubeCreatorFromPostLink = async (postLink: string) => {
+    const repsonse = await fetch(postLink)
+    const bodyText = await repsonse.text()
+    const $ = cheerio.load(bodyText)
+    const creatorLink = $($('span[itemprop="author"]').children()[0]).attr('href')
+    const creatorName = $($('span[itemprop="author"]').children()[1]).attr('content')
+    console.log("*** creatorLink = " + creatorLink)
+    console.log("*** creatorName = " + creatorName)
 }
