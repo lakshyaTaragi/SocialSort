@@ -9,7 +9,6 @@ export default defineConfig({
       input: {
         'instagramContentScript': './src/contentScripts/instagramContentScript.ts',
         'instagramServiceWorker': './src/serviceWorkers/instagramServiceWorker.ts',
-        'youtubeServiceWorker': './src/serviceWorkers/youtubeServiceWorker.ts',
         'redditServiceWorker': './src/serviceWorkers/redditServiceWorker.ts',
         'apiRoutes': './src/serviceWorkers/apiRoutes.ts',
         'background': './src/serviceWorkers/background.ts',

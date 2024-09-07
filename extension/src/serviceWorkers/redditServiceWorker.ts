@@ -1,7 +1,7 @@
 import * as cheerio from "cheerio"
 import { sendAction } from "./apiRoutes"
 
-import { getActionRequestBody } from "./youtubeServiceWorker"
+import { getActionRequestBody } from './requestUtils'
 
 export const REDDIT_POST_ACTION_MESSAGE: string = "REDDIT_POST_ACTION_MESSAGE"
 export const REDDIT_COMMENT_ACTION_MESSAGE: string = "REDDIT_COMMENT_ACTION_MESSAGE"
