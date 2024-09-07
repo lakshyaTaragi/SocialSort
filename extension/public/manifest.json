@@ -11,7 +11,8 @@
         "webNavigation"
     ],
     "host_permissions": [
-        "*://*.reddit.com/svc/shreddit/graphql"
+        "*://*.reddit.com/svc/shreddit/graphql",
+        "*://x.com/i/api/graphql/*/*Bookmark"
     ],
     "content_scripts": [
         {
@@ -20,6 +21,14 @@
             ],
             "js": [
                 "./assets/instagramContentScript.js"
+            ]
+        },
+        {
+            "matches": [
+                "*://*.x.com/*"
+            ],
+            "js": [
+                "./assets/twitterContentScript.js"
             ]
         }
     ],

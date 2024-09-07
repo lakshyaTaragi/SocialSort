@@ -10,6 +10,8 @@ export default defineConfig({
         'instagramContentScript': './src/contentScripts/instagramContentScript.ts',
         'instagramServiceWorker': './src/serviceWorkers/instagramServiceWorker.ts',
         'redditServiceWorker': './src/serviceWorkers/redditServiceWorker.ts',
+        'twitterContentScript': './src/contentScripts/twitterContentScript.ts',
+        'twitterServiceWorker': './src/serviceWorkers/twitterServiceWorker.ts',
         'apiRoutes': './src/serviceWorkers/apiRoutes.ts',
         'background': './src/serviceWorkers/background.ts',
         'index': 'index.html',
