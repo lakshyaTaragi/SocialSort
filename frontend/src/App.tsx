@@ -9,7 +9,7 @@ const App = (): ReactElement => {
     axios.get("http://localhost:8000/hi")
       .then(res => setData(res.data.message))
       .catch(err => console.log(err))
-  }, []);
+  }, [])
 
   return (
     <>

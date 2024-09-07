@@ -6,7 +6,6 @@ import { getActionRequestBody } from "./youtubeServiceWorker"
 export const REDDIT_POST_ACTION_MESSAGE: string = "REDDIT_POST_ACTION_MESSAGE"
 export const REDDIT_COMMENT_ACTION_MESSAGE: string = "REDDIT_COMMENT_ACTION_MESSAGE"
 
-type sod = string | undefined
 
 export const addRedditActionListener = () => {
     chrome.webRequest.onBeforeRequest.addListener(
@@ -19,14 +18,14 @@ export const addRedditActionListener = () => {
             if (!(requestBody?.operation === "UpdatePostSaveState" || requestBody?.operation === "UpdateCommentSaveState")) {
                 return
             }
-            let action: sod = requestBody?.variables?.input?.saveState
+            let action: string | undefined = requestBody?.variables?.input?.saveState
             if (!action) {
                 return
             } else {
                 action = action === "NONE" ? "unsave" : "save"
             }
-            let postId: sod = requestBody?.variables?.input?.postId // t3_<id>
-            let commentId: sod = requestBody?.variables?.input?.commentId // t1_<id>
+            let postId: string | undefined = requestBody?.variables?.input?.postId // t3_<id>
+            let commentId: string | undefined = requestBody?.variables?.input?.commentId // t1_<id>
             if (commentId) {
                 commentId = commentId.split("_")[1]
                 // assuming that comments can only be viewed from the post page and not feed
@@ -34,7 +33,7 @@ export const addRedditActionListener = () => {
                     if (tabs && tabs[0]) {
                         //* postLink: https://www.reddit.com/r/<subreddit_name>/comments/<post_id>/<title_with_underscores>/
                         //* commentLink: https://www.reddit.com/r/<subreddit_name>/comments/<post_id>/comment/<commentId>/
-                        let postLink: sod = tabs[0].url
+                        let postLink: string | undefined = tabs[0].url
                         if (postLink) {
                             let commentLink = getCommentLinkFromPostLink(postLink, commentId as string)
                             console.log(`to ${action} comment ${commentId}: ${commentLink}`)
@@ -71,8 +70,8 @@ export const addRedditActionListener = () => {
     )
 }
 
-const getFullPostLink = async (postLink: string): Promise<sod> => {
-    let fullPostLink: sod, creatorLink: sod, creatorName: sod
+const getFullPostLink = async (postLink: string): Promise<string | undefined> => {
+    let fullPostLink: string | undefined, creatorLink: string | undefined, creatorName: string | undefined
     try {
         const response = await fetch(postLink)
         const bodyText = await response.text()
