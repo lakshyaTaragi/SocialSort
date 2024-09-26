@@ -11,6 +11,7 @@
         "webNavigation"
     ],
     "host_permissions": [
+        "*://*.youtube.com/youtubei/v1/next*",
         "*://*.reddit.com/svc/shreddit/graphql",
         "*://x.com/i/api/graphql/*/*Bookmark"
     ],
@@ -29,6 +30,15 @@
             ],
             "js": [
                 "./assets/twitterContentScript.js"
+            ]
+        },
+        {
+            "matches": [
+                "*://*.youtube.com/shorts/*",
+                "*://*.youtube.com/watch*"
+            ],
+            "js": [
+                "./assets/youtubeContentScript.js"
             ]
         }
     ],
